@@ -12,9 +12,9 @@ export function App() {
 
   useEffect(() => {
     // Controlla se c'è un'email memorizzata nel localStorage
-    if (cachedEmail) {
+    if (!!cachedEmail) {
       // Verifica se l'email memorizzata nel localStorage è presente negli utenti
-      if (users[cachedEmail]) {
+      if (!!users[cachedEmail]) {
         // Se l'email è presente negli utenti, imposta isLogged a true
         setIsLogged(true);
         setInputEmail(cachedEmail);
@@ -23,7 +23,7 @@ export function App() {
     setIsValidEmail(validateEmail(inputEmail))
   }, [cachedEmail, users, inputEmail]);
 
-  function onMap(user) {
+  /*function onMap(user) {
     if (user.email === inputEmail) {
       return {
         email: user.email,
@@ -31,7 +31,7 @@ export function App() {
         lastAccess: new Date().toISOString(),
       };
     } else return user;
-  }
+  }*/
 
   function onClickLogin() {
     setIsLogged(true);
